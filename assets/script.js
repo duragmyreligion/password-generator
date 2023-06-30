@@ -37,6 +37,37 @@ if (showLowAlphabet === false && showUpAlphabet === false && showSpecialChar ===
   showSpecialChar = confirm("Click OK if you would like to include special characters.");
   showNumbers = confirm("Click OK if you would like to include numeric characters.");
 }
+
+// 3. Generate password based on criteria.
+var generatedPassword = [];
+
+if (showLowAlphabet) {
+  generatedPassword = generatedPassword.concat(lowAlphabet);
+}
+
+if (showUpAlphabet) {
+  generatedPassword = generatedPassword.concat(upAlphabet);
+}
+
+if (showSpecialChar) {
+  generatedPassword = generatedPassword.concat(specialChar);
+}
+
+if (showNumbers) {
+  generatedPassword = generatedPassword.concat(numbers);
+}
+
+// 4. Display generated password on the page.
+var passwordRand = ""
+
+
+  for (var i = 0; i < passLength; i++) {
+    var randomIndex = Math.floor(Math.random() * generatedPassword.length)
+    passwordRand += generatedPassword[randomIndex];
+  }
+
+
+  return passwordRand;
 }
 
 // Write password to the #password input
